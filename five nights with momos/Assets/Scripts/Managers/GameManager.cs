@@ -44,9 +44,9 @@ public class GameManager : MonoBehaviour
             Datos datosNuevos = JsonUtility.FromJson<Datos>(contenidoString);//crea una nueva instancia del objeto de tido Datos con la informacion de contenidoString
 
             // como lo que se creo es una instancia del objeto Datos, entonces para que no haya problemas pues el que usamos es la instancia de Datos jugador no datosNuevos entonces hacemos
-            datosNuevos.NumeroDeNoche = DatosJugador.NumeroDeNoche;
-            datosNuevos.Estrellas = DatosJugador.Estrellas;
-            datosNuevos.CustomNight = DatosJugador.CustomNight;
+            DatosJugador.NumeroDeNoche = datosNuevos.NumeroDeNoche;
+            DatosJugador.Estrellas = datosNuevos.Estrella;
+            DatosJugador.CustomNight = datosNuevos.CustomNight;
 
             Debug.Log("Cargando json" + contenidoString);
             Debug.Log("Se cargo Estrellas " + DatosJugador.Estrellas + ", Numero de noche "+DatosJugador.NumeroDeNoche+", Custom night "+ DatosJugador.CustomNight);
