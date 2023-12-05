@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using TMPro;
 public class GameManager : MonoBehaviour
 {    
     public Datos DatosJugador;
+    public TextMeshProUGUI NightText;
     void Awake()
     {
         var NoDestruir = FindObjectsOfType<GameManager>(); // no destruir = conjunto de objetos hijos del gamemanager
@@ -45,9 +47,10 @@ public class GameManager : MonoBehaviour
 
             // como lo que se creo es una instancia del objeto Datos, entonces para que no haya problemas pues el que usamos es la instancia de Datos jugador no datosNuevos entonces hacemos
             DatosJugador.NumeroDeNoche = datosNuevos.NumeroDeNoche;
-            DatosJugador.Estrellas = datosNuevos.Estrella;
+            DatosJugador.Estrellas = datosNuevos.Estrellas;
             DatosJugador.CustomNight = datosNuevos.CustomNight;
 
+            NightText.text = "night " + DatosJugador.NumeroDeNoche;
             Debug.Log("Cargando json" + contenidoString);
             Debug.Log("Se cargo Estrellas " + DatosJugador.Estrellas + ", Numero de noche "+DatosJugador.NumeroDeNoche+", Custom night "+ DatosJugador.CustomNight);
         }
