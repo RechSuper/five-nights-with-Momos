@@ -8,12 +8,12 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         var NoDestruir = FindObjectsOfType<GameManager>(); // no destruir = conjunto de objetos hijos del gamemanager
-        if (NoDestruir.Length < 1){ // si el objeto hijo es el numero 0 o menor lo destruye
+        if (NoDestruir.Length < 1){ // si el objeto hijo es el numero 0 o menor lo destruye //no es el objeto hijo, sino el mismo gameobject que al haber 2 se autodestruye para no causar interferencia
             Destroy(gameObject);
             return;
         }
 
-        DontDestroyOnLoad(gameObject);// mientras que los que no son menores a 1 osea el mismo gameobjetc seguiran con vida :)
+        DontDestroyOnLoad(gameObject);// mientras que los que no son menores a 1 osea el mismo gameobjetc seguiran con vida :) //aca si no hay otro game manager pasa a la siguiente sala
         
     }
 
