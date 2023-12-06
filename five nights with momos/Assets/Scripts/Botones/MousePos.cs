@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class MousePos : MonoBehaviour
 {
-    public Vector3 Mouse
+    public Vector3 mouse;
+    public float percentage;
+    public bool isleft;
+
+    public float vb = Screen.width;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +19,14 @@ public class MousePos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Mouse = Input.mousePosition;
+        mouse = Input.mousePosition;
+        percentage = Mathf.Floor(mouse.x / Screen.width);
+        if (percentage <= 50)
+        {
+            isleft = true;
+        } else 
+        {
+            isleft = false;
+        }
     }
 }
