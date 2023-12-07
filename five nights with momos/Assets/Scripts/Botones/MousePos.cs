@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class MousePos : MonoBehaviour
 {
-    public Vector3 mouse;
-    public float percentage;
-    public bool isleft;
+    [SerializeField] private Camera Camera;
+    [SerializeField] private Collider coll1;
+    public bool clicked = false;
 
-    public float vb = Screen.width;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +17,16 @@ public class MousePos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mouse = Input.mousePosition;
-        percentage = Mathf.Floor(mouse.x / Screen.width);
-        if (percentage <= 50)
+        Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit raycastHit);
+        if (raycastHit.collider == coll1 && Input.GetKeyDown(KeyCode.Mouse0))
         {
-            isleft = true;
-        } else 
-        {
-            isleft = false;
+            if (clicked == false)
+            {
+                clicked = true;
+            }else
+            {
+                clicked = false;
+            }
         }
     }
 }
