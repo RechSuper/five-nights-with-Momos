@@ -8,10 +8,9 @@ using TMPro;
 public class MenuManager : MonoBehaviour
 {
     public TextMeshProUGUI NightText;
-    [SerializeField] private GameManager gameManager; // he creado un menu manager para que controle todo lo del menu principal: botones, animcaiones, efectos y etc
-
-    private void Awake()
-    {
+    [SerializeField]private GameManager gameManager;
+    // he creado un menu manager para que controle todo lo del menu principal: botones, animcaiones, efectos y etc
+    private void Update() {
         NightText.text = "night " + gameManager.DatosJugador.NumeroDeNoche; // se cambiara el texto del objeto para que diga el numero de la noche
     }
 

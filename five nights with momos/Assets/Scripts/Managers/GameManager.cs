@@ -46,9 +46,15 @@ public class GameManager : MonoBehaviour
             Datos datosNuevos = JsonUtility.FromJson<Datos>(contenidoString);//crea una nueva instancia del objeto de tido Datos con la informacion de contenidoString
 
             // como lo que se creo es una instancia del objeto Datos, entonces para que no haya problemas pues el que usamos es la instancia de Datos jugador no datosNuevos entonces hacemos
+<<<<<<< Updated upstream
             DatosJugador.NumeroDeNoche = datosNuevos.NumeroDeNoche;
             DatosJugador.Estrellas = datosNuevos.Estrellas;
             DatosJugador.CustomNight = datosNuevos.CustomNight;
+=======
+            DatosJugador.NumeroDeNoche= datosNuevos.NumeroDeNoche;
+            DatosJugador.Estrellas= datosNuevos.Estrellas;
+            DatosJugador.CustomNight= datosNuevos.CustomNight;
+>>>>>>> Stashed changes
 
             NightText.text = "night " + DatosJugador.NumeroDeNoche;
             Debug.Log("Cargando json" + contenidoString);
