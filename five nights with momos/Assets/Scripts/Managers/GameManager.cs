@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using TMPro;
 public class GameManager : MonoBehaviour
 {    
     public Datos DatosJugador;
-    public TextMeshProUGUI NightText;
     void Awake()
     {
         var NoDestruir = FindObjectsOfType<GameManager>(); // no destruir = conjunto de objetos hijos del gamemanager
@@ -16,10 +14,8 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);// mientras que los que no son menores a 1 osea el mismo gameobjetc seguiran con vida :) //aca si no hay otro game manager pasa a la siguiente sala
-        
-    }
 
-    // Update is called once per frame
+    }
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.S)){
@@ -46,17 +42,10 @@ public class GameManager : MonoBehaviour
             Datos datosNuevos = JsonUtility.FromJson<Datos>(contenidoString);//crea una nueva instancia del objeto de tido Datos con la informacion de contenidoString
 
             // como lo que se creo es una instancia del objeto Datos, entonces para que no haya problemas pues el que usamos es la instancia de Datos jugador no datosNuevos entonces hacemos
-<<<<<<< Updated upstream
-            DatosJugador.NumeroDeNoche = datosNuevos.NumeroDeNoche;
-            DatosJugador.Estrellas = datosNuevos.Estrellas;
-            DatosJugador.CustomNight = datosNuevos.CustomNight;
-=======
             DatosJugador.NumeroDeNoche= datosNuevos.NumeroDeNoche;
             DatosJugador.Estrellas= datosNuevos.Estrellas;
             DatosJugador.CustomNight= datosNuevos.CustomNight;
->>>>>>> Stashed changes
 
-            NightText.text = "night " + DatosJugador.NumeroDeNoche;
             Debug.Log("Cargando json" + contenidoString);
             Debug.Log("Se cargo Estrellas " + DatosJugador.Estrellas + ", Numero de noche "+DatosJugador.NumeroDeNoche+", Custom night "+ DatosJugador.CustomNight);
         }
