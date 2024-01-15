@@ -16,12 +16,24 @@ public class ClicksManager : MonoBehaviour
     //los planos son unos planos (XD) que se ubican a la izquierda y derecha de la pantalla (o la camara)
     public LayerMask layerMask1; //layermask de los botones
     public LayerMask layerMask2; //layermask de los planos
+
     public bool clicked1 = false; //puerta izq
     public bool clicked2 = false; //puerta der
     public bool clicked3 = false; //luz izq
     public bool clicked4 = false; //luz der
+
     public Collider ositofredifasberNose; //la nariz del osito fredifasber
     [SerializeField] private AudioClip sonidofredifasber;
+
+    public Material luz1;
+    public Material luz2;
+    public Material puerta1;
+    public Material puerta2;
+
+    public GameObject luzIzq;
+    public GameObject luzDer;
+    public GameObject puertaIzq;
+    public GameObject puertaDer;
 
     bool ray1;
     bool ray2;
@@ -94,6 +106,38 @@ public class ClicksManager : MonoBehaviour
             {
                 MainCamera.transform.Rotate(new Vector3(0, 1, 0));
             }
+        }
+
+        if (clicked1 == true)
+        {
+            puertaIzq.GetComponent<Renderer>().material = puerta1;
+        }else
+        {
+            puertaIzq.GetComponent<Renderer>().material = puerta2;
+        }
+
+        if (clicked2 == true)
+        {
+            puertaDer.GetComponent<Renderer>().material = puerta1;
+        }else
+        {
+            puertaDer.GetComponent<Renderer>().material = puerta2;
+        }
+
+        if (clicked3 == true)
+        {
+            luzIzq.GetComponent<Renderer>().material = luz1;
+        }else
+        {
+            luzIzq.GetComponent<Renderer>().material = luz2;
+        }
+
+        if (clicked4 == true)
+        {
+            luzDer.GetComponent<Renderer>().material = luz1;
+        }else
+        {
+            luzDer.GetComponent<Renderer>().material = luz2;
         }
     }
 }
