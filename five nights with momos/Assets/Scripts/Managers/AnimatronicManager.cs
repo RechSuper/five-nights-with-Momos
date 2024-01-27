@@ -7,16 +7,16 @@ using UnityEngine.AI;
 public class AnimatronicManager : MonoBehaviour
 {
     [Header("el pepe stuff")]
-    public int[] elpepeArray = {1, 2, 3, 9, 11, 12};
+    public int[] elpepeArray = {0, 1, 2, 8, 10, 11};
     public int elpepeAI;
     public int elpepeRandom;
-    public int elpepePos = 0;
+    public int elpepePos = -1;
 
     [Header("ete sech stuff")]
-    public int[] etesechArray = {1, 5, 6, 7, 8, 10, 12};
+    public int[] etesechArray = {0, 4, 5, 6, 7, 9, 11};
     public int etesechAI;
     public int etesechRandom;
-    public int etesechPos = 0;
+    public int etesechPos = -1;
 
     [Header("Camaras")]
     public int elpepeCam;

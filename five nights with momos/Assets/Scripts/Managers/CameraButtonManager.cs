@@ -8,6 +8,7 @@ public class CameraButtonManager : MonoBehaviour
     public static bool isPanel = false;
     public GameObject CameraPanel;
     public GameObject CameraButton;
+    [SerializeField] GameObject mainCam;
 
     public Sprite ButtonCamOn;
     public Sprite ButtonCamOff;
@@ -32,11 +33,13 @@ public class CameraButtonManager : MonoBehaviour
             isPanel = true;
             CameraPanel.SetActive(true);
             CameraButton.GetComponent<Image>().sprite = ButtonCamOn;
+            mainCam.SetActive(false);
 
         }else
         {
             isPanel = false;
             CameraPanel.SetActive(false);
+            mainCam.SetActive(true);
             CameraButton.GetComponent<Image>().sprite = ButtonCamOff;
         }
     }
